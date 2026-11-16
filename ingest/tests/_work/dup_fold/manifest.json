@@ -1,0 +1,24 @@
+{
+  "tables": [
+    {
+      "name": "items",
+      "file": "items.csv",
+      "columns": [
+        {
+          "name": "sku",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "label"
+        }
+      ],
+      "primary_key": [
+        "sku"
+      ],
+      "required": [
+        "label"
+      ]
+    }
+  ]
+}

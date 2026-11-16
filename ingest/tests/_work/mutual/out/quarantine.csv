@@ -1,0 +1,2 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+nodes,nodes.csv,4,1,MISSING_TARGET,MISSING_TARGET: fk=fk_peer target=nodes key=N9,"[""N3"", ""N9""]"

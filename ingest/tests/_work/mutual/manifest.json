@@ -1,0 +1,31 @@
+{
+  "tables": [
+    {
+      "name": "nodes",
+      "file": "nodes.csv",
+      "columns": [
+        {
+          "name": "nid"
+        },
+        {
+          "name": "peer"
+        }
+      ],
+      "primary_key": [
+        "nid"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_peer",
+          "columns": [
+            "peer"
+          ],
+          "target_table": "nodes",
+          "references": [
+            "nid"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+customers,csv/customers.csv,3,1,DUP_KEY,DUP_KEY: pk=c2,"["" C2 "", ""Bob"", ""Shanghai""]"
+customers,csv/customers.csv,4,1,DUP_KEY,DUP_KEY: pk=c2,"[""c2"", ""Carol"", ""Shenzhen""]"
+customers,csv/customers.csv,5,1,MISSING_REQUIRED,MISSING_REQUIRED: column=cust_name 原始值为空,"[""C4"", """", ""Hangzhou""]"
+orders,csv/orders.csv,3,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_order_customer target=customers key=c2,"[""O2"", ""  c2  "", ""200""]"
+orders,csv/orders.csv,4,2,MISSING_REQUIRED|MISSING_TARGET,MISSING_REQUIRED: column=amount 原始值为空 | MISSING_TARGET: fk=fk_order_customer target=customers key=c9,"[""O3"", ""C9"", """"]"
+orders,csv/orders.csv,6,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_order_customer target=customers key=c4,"[""O5"", ""C4"", ""500""]"
+invoices,csv/invoices.csv,3,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_invoice_order target=orders key=O2,"[""I2"", ""O2"", ""20"", ""ok""]"
+invoices,csv/invoices.csv,4,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_invoice_order target=orders key=O3,"[""I3"", ""O3"", ""30"", ""ok""]"
+invoices,csv/invoices.csv,6,1,MISSING_TARGET,MISSING_TARGET: fk=fk_invoice_order target=orders key=O9,"[""I5"", ""O9"", ""50"", ""ok""]"
+partners,csv/partners.csv,4,1,MISSING_TARGET,MISSING_TARGET: fk=fk_partner_self target=partners key=P8,"[""P3"", ""P8""]"

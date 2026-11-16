@@ -1,0 +1,61 @@
+{
+  "version": "1",
+  "tables": [
+    {
+      "name": "customers",
+      "file": "data/customers.csv",
+      "columns": [
+        {
+          "name": "cust_id"
+        },
+        {
+          "name": "cust_name"
+        },
+        {
+          "name": "city",
+          "trim": true,
+          "casefold": true
+        }
+      ],
+      "primary_key": [
+        "cust_id"
+      ],
+      "required": [
+        "cust_name"
+      ]
+    },
+    {
+      "name": "orders",
+      "file": "data/orders.csv",
+      "columns": [
+        {
+          "name": "order_id"
+        },
+        {
+          "name": "cust_id"
+        },
+        {
+          "name": "amount"
+        }
+      ],
+      "primary_key": [
+        "order_id"
+      ],
+      "required": [
+        "amount"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_orders_customer",
+          "columns": [
+            "cust_id"
+          ],
+          "target_table": "customers",
+          "references": [
+            "cust_id"
+          ]
+        }
+      ]
+    }
+  ]
+}

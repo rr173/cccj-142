@@ -1,0 +1,22 @@
+{
+  "tables": [
+    {
+      "name": "notes",
+      "file": "notes.csv",
+      "columns": [
+        {
+          "name": "nid"
+        },
+        {
+          "name": "body"
+        }
+      ],
+      "primary_key": [
+        "nid"
+      ],
+      "required": [
+        "body"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+cust_id,cust_name,city
+C1,Alice,Beijing
+C2,Bob, Shanghai 
+C3,,Beijing

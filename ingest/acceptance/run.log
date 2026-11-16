@@ -1,0 +1,27 @@
+### 1. 构建手算数据包（不调用正式校验代码）
+已写出验收数据包：/workspace/ingest/acceptance/data/package_good
+已写出损坏对照包：/workspace/ingest/acceptance/data/package_bad
+
+### 2. 对好包执行入库
+完成：读取 19 行，有效 9 行，隔离 10 行。交付目录：/workspace/ingest/acceptance/output/good
+
+### 3. 对损坏包执行入库（预期失败，退出码 3）
+错误：文件 orders.csv 在物理行 4 附近存在未闭合的 CSV 引号字段（该行含引号字段）
+损坏包退出码=3（期望 3）
+
+### 4. 独立手算断言
+== 好包：运行命令 ==
+/usr/bin/python3 -I /workspace/ingest/bin/csv-ingest --input-dir /workspace/ingest/acceptance/data/package_good --manifest /workspace/ingest/acceptance/data/package_good/manifest.json --output-dir /workspace/ingest/acceptance/output/verify/good --batch-size 13 --force
+== 损坏包：运行命令 ==
+/usr/bin/python3 -I /workspace/ingest/bin/csv-ingest --input-dir /workspace/ingest/acceptance/data/package_bad --manifest /workspace/ingest/acceptance/data/package_bad/manifest.json --output-dir /workspace/ingest/acceptance/output/verify/bad --batch-size 13 --force
+
+全部验收断言通过（有效行、隔离原因、逻辑序号、传播、互引、计数、原子失败）。
+
+### 5. 交付物清单
+/workspace/ingest/acceptance/output/good/quarantine.csv
+/workspace/ingest/acceptance/output/good/report.json
+/workspace/ingest/acceptance/output/good/summary.txt
+/workspace/ingest/acceptance/output/good/valid/customers.csv
+/workspace/ingest/acceptance/output/good/valid/invoices.csv
+/workspace/ingest/acceptance/output/good/valid/orders.csv
+/workspace/ingest/acceptance/output/good/valid/partners.csv

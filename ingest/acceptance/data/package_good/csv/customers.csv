@@ -1,0 +1,6 @@
+cust_id,cust_name,city
+C1,Alice,Beijing
+ C2 ,Bob,Shanghai
+c2,Carol,Shenzhen
+C4,,Hangzhou
+C5,Dave,Chengdu

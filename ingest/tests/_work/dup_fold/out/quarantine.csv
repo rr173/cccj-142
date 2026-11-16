@@ -1,0 +1,4 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+items,items.csv,2,1,DUP_KEY,DUP_KEY: pk=a1,"[""A1"", ""first""]"
+items,items.csv,3,1,DUP_KEY,DUP_KEY: pk=a1,"["" a1 "", ""second""]"
+items,items.csv,4,1,DUP_KEY,DUP_KEY: pk=a1,"[""A1"", ""third""]"

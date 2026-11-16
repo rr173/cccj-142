@@ -1,0 +1,2 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+c,c.csv,3,1,MISSING_TARGET,MISSING_TARGET: fk=fk_a_b target=p key=zz,"[""C2"", ""z"", ""z""]"

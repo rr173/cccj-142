@@ -1,0 +1,4 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+orders,data/orders.csv,3,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_orders_customer target=customers key=C2,"[""O2"", ""C2"", ""2""]"
+orders,data/orders.csv,4,1,MISSING_TARGET,MISSING_TARGET: fk=fk_orders_customer target=customers key=C9,"[""O3"", ""C9"", ""3""]"
+customers,data/customers.csv,3,1,MISSING_REQUIRED,MISSING_REQUIRED: column=cust_name 原始值为空,"[""C2"", """", ""y""]"

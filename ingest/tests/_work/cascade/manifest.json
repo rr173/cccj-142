@@ -1,0 +1,88 @@
+{
+  "tables": [
+    {
+      "name": "parents",
+      "file": "parents.csv",
+      "columns": [
+        {
+          "name": "pid"
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "pid"
+      ],
+      "required": [
+        "v"
+      ]
+    },
+    {
+      "name": "children",
+      "file": "children.csv",
+      "columns": [
+        {
+          "name": "cid"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "cid"
+      ],
+      "required": [
+        "v"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_c_p",
+          "columns": [
+            "pid"
+          ],
+          "target_table": "parents",
+          "references": [
+            "pid"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grandchildren",
+      "file": "grandchildren.csv",
+      "columns": [
+        {
+          "name": "gid"
+        },
+        {
+          "name": "cid"
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "gid"
+      ],
+      "required": [
+        "v"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_g_c",
+          "columns": [
+            "cid"
+          ],
+          "target_table": "children",
+          "references": [
+            "cid"
+          ]
+        }
+      ]
+    }
+  ]
+}

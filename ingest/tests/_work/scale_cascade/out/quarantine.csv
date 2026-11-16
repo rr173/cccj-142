@@ -1,0 +1,7 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+t1,data/t1.csv,2,1,MISSING_REQUIRED,MISSING_REQUIRED: column=v 原始值为空,"[""K0"", """", """"]"
+t2,data/t2.csv,2,1,MISSING_TARGET,MISSING_TARGET: fk=fk_ref target=t1 key=X,"[""K0"", ""X"", ""v0""]"
+t2,data/t2.csv,3,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_ref target=t1 key=K0,"[""K1"", ""K0"", ""v1""]"
+t3,data/t3.csv,2,1,MISSING_TARGET,MISSING_TARGET: fk=fk_ref target=t2 key=X,"[""K0"", ""X"", ""v0""]"
+t3,data/t3.csv,3,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_ref target=t2 key=K0,"[""K1"", ""K0"", ""v1""]"
+t3,data/t3.csv,4,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_ref target=t2 key=K1,"[""K2"", ""K1"", ""v2""]"

@@ -1,0 +1,6 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+parents,parents.csv,2,1,MISSING_REQUIRED,MISSING_REQUIRED: column=v 原始值为空,"[""P1"", """"]"
+children,children.csv,2,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_c_p target=parents key=P1,"[""C1"", ""P1"", ""a""]"
+children,children.csv,4,1,MISSING_TARGET,MISSING_TARGET: fk=fk_c_p target=parents key=P9,"[""C3"", ""P9"", ""c""]"
+grandchildren,grandchildren.csv,2,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_g_c target=children key=C1,"[""G1"", ""C1"", ""m""]"
+grandchildren,grandchildren.csv,4,1,REF_QUARANTINED,REF_QUARANTINED: fk=fk_g_c target=children key=C3,"[""G3"", ""C3"", ""o""]"

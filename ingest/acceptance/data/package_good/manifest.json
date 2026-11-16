@@ -1,0 +1,126 @@
+{
+  "version": "acceptance-1",
+  "tables": [
+    {
+      "name": "customers",
+      "file": "csv/customers.csv",
+      "columns": [
+        {
+          "name": "cust_id",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "cust_name"
+        },
+        {
+          "name": "city"
+        }
+      ],
+      "primary_key": [
+        "cust_id"
+      ],
+      "required": [
+        "cust_name"
+      ]
+    },
+    {
+      "name": "orders",
+      "file": "csv/orders.csv",
+      "columns": [
+        {
+          "name": "order_id"
+        },
+        {
+          "name": "cust_id",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "amount"
+        }
+      ],
+      "primary_key": [
+        "order_id"
+      ],
+      "required": [
+        "amount"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_order_customer",
+          "columns": [
+            "cust_id"
+          ],
+          "target_table": "customers",
+          "references": [
+            "cust_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "invoices",
+      "file": "csv/invoices.csv",
+      "columns": [
+        {
+          "name": "inv_id"
+        },
+        {
+          "name": "order_id"
+        },
+        {
+          "name": "total"
+        },
+        {
+          "name": "note"
+        }
+      ],
+      "primary_key": [
+        "inv_id"
+      ],
+      "required": [
+        "total"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_invoice_order",
+          "columns": [
+            "order_id"
+          ],
+          "target_table": "orders",
+          "references": [
+            "order_id"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "partners",
+      "file": "csv/partners.csv",
+      "columns": [
+        {
+          "name": "pid"
+        },
+        {
+          "name": "peer"
+        }
+      ],
+      "primary_key": [
+        "pid"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_partner_self",
+          "columns": [
+            "peer"
+          ],
+          "target_table": "partners",
+          "references": [
+            "pid"
+          ]
+        }
+      ]
+    }
+  ]
+}

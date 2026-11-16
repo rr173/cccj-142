@@ -1,0 +1,3 @@
+table_name,source_file,logical_record_no,reason_count,reason_codes,reason_details,raw_row_json
+c,c.csv,2,3,DUP_KEY|MISSING_REQUIRED|MISSING_TARGET,DUP_KEY: pk=C1 | MISSING_REQUIRED: column=v 原始值为空 | MISSING_TARGET: fk=fk_pid target=p key=P9,"[""C1"", ""P9"", """"]"
+c,c.csv,3,2,DUP_KEY|MISSING_REQUIRED,DUP_KEY: pk=C1 | MISSING_REQUIRED: column=v 原始值为空,"[""C1"", ""P1"", """"]"

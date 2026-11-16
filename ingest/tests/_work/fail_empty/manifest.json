@@ -1,0 +1,22 @@
+{
+  "tables": [
+    {
+      "name": "t",
+      "file": "t.csv",
+      "columns": [
+        {
+          "name": "a"
+        },
+        {
+          "name": "b"
+        }
+      ],
+      "primary_key": [
+        "a"
+      ],
+      "required": [
+        "b"
+      ]
+    }
+  ]
+}

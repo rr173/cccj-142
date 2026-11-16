@@ -1,0 +1,59 @@
+{
+  "tables": [
+    {
+      "table": "customers",
+      "source_file": "data/customers.csv",
+      "read": 2,
+      "valid": 1,
+      "quarantined": 1,
+      "reason_records": {
+        "DUP_KEY": 0,
+        "MISSING_REQUIRED": 1,
+        "MISSING_TARGET": 0,
+        "REF_QUARANTINED": 0
+      },
+      "reason_descriptions": {
+        "DUP_KEY": "重复主键（按该表声明的规范化规则相等）",
+        "MISSING_REQUIRED": "必填值缺失（原始字段为空字符串）",
+        "MISSING_TARGET": "缺失引用目标（目标表中不存在匹配主键）",
+        "REF_QUARANTINED": "引用到已隔离记录（目标键存在但其记录被隔离）"
+      }
+    },
+    {
+      "table": "orders",
+      "source_file": "data/orders.csv",
+      "read": 3,
+      "valid": 1,
+      "quarantined": 2,
+      "reason_records": {
+        "DUP_KEY": 0,
+        "MISSING_REQUIRED": 0,
+        "MISSING_TARGET": 1,
+        "REF_QUARANTINED": 1
+      },
+      "reason_descriptions": {
+        "DUP_KEY": "重复主键（按该表声明的规范化规则相等）",
+        "MISSING_REQUIRED": "必填值缺失（原始字段为空字符串）",
+        "MISSING_TARGET": "缺失引用目标（目标表中不存在匹配主键）",
+        "REF_QUARANTINED": "引用到已隔离记录（目标键存在但其记录被隔离）"
+      }
+    }
+  ],
+  "totals": {
+    "read": 5,
+    "valid": 2,
+    "quarantined": 3,
+    "reasons": {
+      "DUP_KEY": 0,
+      "MISSING_REQUIRED": 1,
+      "MISSING_TARGET": 1,
+      "REF_QUARANTINED": 1
+    }
+  },
+  "reason_order": [
+    "DUP_KEY",
+    "MISSING_REQUIRED",
+    "MISSING_TARGET",
+    "REF_QUARANTINED"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "tables": [
+    {
+      "name": "p",
+      "file": "p.csv",
+      "columns": [
+        {
+          "name": "pid"
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "pid"
+      ],
+      "required": [
+        "v"
+      ]
+    },
+    {
+      "name": "c",
+      "file": "c.csv",
+      "columns": [
+        {
+          "name": "cid"
+        },
+        {
+          "name": "pid"
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "cid"
+      ],
+      "required": [
+        "v"
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk",
+          "columns": [
+            "pid"
+          ],
+          "target_table": "p",
+          "references": [
+            "pid"
+          ]
+        }
+      ]
+    }
+  ]
+}

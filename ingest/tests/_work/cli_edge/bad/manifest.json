@@ -1,0 +1,1 @@
+{"tables": [{"name": "t", "file": "t.csv", "columns": [{"name": "a"}], "primary_key": ["nope"]}]}

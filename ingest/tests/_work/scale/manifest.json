@@ -1,0 +1,1 @@
+{"tables": [{"name": "p", "file": "data/p.csv", "columns": [{"name": "pid"}, {"name": "v"}], "primary_key": ["pid"], "required": ["v"]}, {"name": "c", "file": "data/c.csv", "columns": [{"name": "cid"}, {"name": "pid"}], "primary_key": ["cid"], "foreign_keys": [{"columns": ["pid"], "target_table": "p", "references": ["pid"]}]}]}

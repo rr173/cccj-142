@@ -1,0 +1,65 @@
+{
+  "tables": [
+    {
+      "name": "p",
+      "file": "p.csv",
+      "columns": [
+        {
+          "name": "k1",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "k2",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "v"
+        }
+      ],
+      "primary_key": [
+        "k1",
+        "k2"
+      ],
+      "required": [
+        "v"
+      ]
+    },
+    {
+      "name": "c",
+      "file": "c.csv",
+      "columns": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "a",
+          "trim": true,
+          "casefold": true
+        },
+        {
+          "name": "b",
+          "trim": true,
+          "casefold": true
+        }
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "a",
+            "b"
+          ],
+          "target_table": "p",
+          "references": [
+            "k1",
+            "k2"
+          ]
+        }
+      ]
+    }
+  ]
+}
