@@ -1,0 +1,21 @@
+{
+  "name": "normalize",
+  "nodes": [
+    {"id": "src",    "type": "source"},
+    {"id": "u",      "type": "union"},
+    {"id": "m",      "type": "map",    "spec": {"kind": "dict_lookup", "dict": {"a": "b", "b": "c"}, "default": "self"}},
+    {"id": "f_fin",  "type": "filter", "spec": {"kind": "not_in", "values": ["a", "b"]}},
+    {"id": "f_loop", "type": "filter", "spec": {"kind": "in",     "values": ["a", "b"]}},
+    {"id": "dup",    "type": "map",    "spec": {"kind": "duplicate", "count": 2}},
+    {"id": "sink",   "type": "sink"}
+  ],
+  "edges": [
+    {"from": "src",    "to": "u"},
+    {"from": "u",      "to": "m"},
+    {"from": "m",      "to": "f_fin"},
+    {"from": "m",      "to": "f_loop"},
+    {"from": "f_fin",  "to": "dup"},
+    {"from": "dup",    "to": "sink"},
+    {"from": "f_loop", "to": "u", "feedback": true}
+  ]
+}
